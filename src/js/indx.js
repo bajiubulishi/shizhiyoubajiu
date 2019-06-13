@@ -24,8 +24,9 @@
 
 // 右边广告滑动效果
 (function() {
-    const $oa = $('#show');
+    const $oa = $('#show ');
     const $pic = $('.ewm_tc_bg .pic1');
+
     $oa.hover(function() {
         $pic.show();
         $oa.css({ "background": "#F11323" })
@@ -78,6 +79,7 @@
 // 侧边栏滑出
 (function() {
     const $lianxi = $('#lianxi')
+    console.log($lianxi)
     const $wf = $('#wf')
     $lianxi.hover(function() {
         $wf.show();
@@ -164,9 +166,19 @@
             $explain.eq(i).html(arr[i].explain);
             $pice.eq(i).html(arr[i].pice);
             $pics.eq(i).html(arr[i].oldpice);
-            $url.eq(i).attr({ src: arr[i].url });
-            $('.div_a').eq(i).attr({ href: "http://10.31.164.18/lianxi/happygo/src/html/show.html?sid=" + arr[i].id })
+            $url.eq(i).attr({ "data-original": arr[i].url });
+            $url.eq(i).attr({
+                src: 'https://ecimg.happigo.com/resource/web/new_web/images/img_default_goods.png',
+                "width": '262px',
+                "height": '262px'
+            })
+            $('.div_a').eq(i).attr({ href: "show.html?sid=" + arr[i].id });
         }
+        // $(function() { //和拼接的元素放在一起。
+        //     $("img.lazy").lazyload({
+        //         'effect': "fadeIn" //图片显示方式
+        //     });
+        // });
     })
 }();
 // 楼梯

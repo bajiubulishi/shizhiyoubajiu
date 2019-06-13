@@ -74,6 +74,7 @@ body {
 }
 
 .divw {
+    position: relative;
     height: 380px;
     width: 380px;
     border: 1px solid #e5e5e5;
@@ -133,9 +134,8 @@ body {
     opacity: 0.6;
     left: 0;
     filter: alpha(opacity=60);
+    cursor: crosshair;
 }
-
-.zoomPreload {}
 
 .zoomWrapperTitle {
     background: none repeat scroll 0 0 #999;
@@ -236,7 +236,7 @@ body {
     -ms-box-sizing: border-box;
 }
 
-.ul-w ul li .zoomThumbActive {
+.ul-w ul li .zoomThumbActive:hover {
     border: 2px solid #c41f3a;
 }
 
