@@ -79,7 +79,6 @@
 // 侧边栏滑出
 (function() {
     const $lianxi = $('#lianxi')
-    console.log($lianxi)
     const $wf = $('#wf')
     $lianxi.hover(function() {
         $wf.show();
@@ -174,11 +173,11 @@
             })
             $('.div_a').eq(i).attr({ href: "show.html?sid=" + arr[i].id });
         }
-        // $(function() { //和拼接的元素放在一起。
-        //     $("img.lazy").lazyload({
-        //         'effect': "fadeIn" //图片显示方式
-        //     });
-        // });
+        $(function() { //和拼接的元素放在一起。
+            $("img.lazy").lazyload({
+                'effect': "fadeIn" //图片显示方式
+            });
+        });
     })
 }();
 // 楼梯

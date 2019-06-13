@@ -1,4 +1,3 @@
-;
 ! function() {
     const $change = $('.ml5');
     const $span = $('.verify-code');
@@ -26,4 +25,7 @@
         }
         $span.html(str)
     })
+}();
+! function() {
+
 }();
