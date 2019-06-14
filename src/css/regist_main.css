@@ -212,17 +212,19 @@ input[type=password]:focus {
     font-family: "宋体";
 }
 
-.login-btn a {
+.login-btn .submit {
     display: block;
     width: 310px;
     height: 40px;
     color: #fff;
     line-height: 40px;
-    background-color: #94193f;
+    background-color: #F11D20;
     text-align: center;
     font-size: 14px;
     font-family: "宋体";
     font-weight: bold;
+    border: 0;
+    cursor: pointer;
 }
 
 .login-btn a:hover {
@@ -287,4 +289,8 @@ input[type=password]:focus {
 
 .footer_bottom {
     background-color: #fff;
+}
+
+.error {
+    color: #f00;
 }
