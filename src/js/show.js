@@ -70,7 +70,7 @@
     const $tit1 = $('.location .tit');
     const $title2 = $('.detail_top .detail_tit ');
     const $explain = $('.detail_top .detail_tit_md');
-    const $price = $('.price_box .price_now');
+    const $price = $('.price_box .price_now b');
     const $priceold = $('.detail_price del');
     const $big = $('.jqzoom img');
     const $thumblist = $('#thumblist');
@@ -93,7 +93,7 @@
         $tit1.html(d.title);
         $title2.html(d.title);
         $explain.html(d.explain);
-        $price.html('￥' + d.pice);
+        $price.html(d.pice);
         $priceold.html('￥' + d.oldpice);
         $big.attr({ src: d.url });
         $('.zoomWrapperImage img').attr({ src: d.url });
@@ -103,13 +103,15 @@
     });
     $add.on('click', function() {
         $num++;
+        console.log($price.text());
+        $price.text();
         $buy_num.val($num);
+
     });
     $reduce.on('click', function() {
         $num--;
         if ($num < 1) {
             $num = 1;
-
         }
         $buy_num.val($num);
     });
@@ -118,6 +120,9 @@
         $big.attr({ 'src': $result_pic });
         $bf.show().find('img').attr({ 'src': $result_pic });
     });
+    // $('#add_cart').on('click', function() {
+    //   
+    // })
 }(jQuery);
 //放大镜
 ! function() {
@@ -192,11 +197,16 @@
             this.num = $('.car_num');
             this.foc = $('.fly_item');
             this.number = 0;
+            this.sid = window.location.search;
+            this.arrsid = [];
+            this.arrnum = [];
         };
         init() {
             const _this = this;
+            this.sid = this.sid.substring(this.sid.indexOf("="), this.sid.length).substring(1);
             this.addcar.on('click', function() {
                 _this.fly(this);
+                _this.cook();
             });
         };
         fly(obj) {
@@ -224,13 +234,33 @@
                 if (_this.foc.offset().left >= _this.car.offset().left) {
                     clearInterval($timer);
                     _this.foc.css({ "visibility": "hide" })
-                    _this.num.html(++_this.number);
+                    console.log($('#buy_num').val())
+                    console.log($('.car_num').text())
+                    _this.num.html(parseInt($('.car_num').text()) + parseInt($('#buy_num').val()));
                 } else {
                     _this.foc.css('left', $sposition.x + vx + 'px');
                     _this.foc.css('top', $sposition.y + a * vx * vx + b * vx + 'px');
                 }
             }, 5)
-        };
+        }
+        cook() {
+            let _this = this;
+            if ($.cookie('cookiesid') && $.cookie('cookienum')) {
+                _this.arrsid = $.cookie('cookiesid').split(',');
+                _this.arrnum = $.cookie('cookienum').split(',');
+            }
+            if ($.inArray(_this.sid, _this.arrsid) != -1) {
+                _this.arrnum[$.inArray(_this.sid, _this.arrsid)] = parseInt($('#buy_num').val()) + parseInt(_this.arrnum[$.inArray(_this.sid, _this.arrsid)]);
+                $.cookie('cookienum', _this.arrnum.join(','), 5)
+            } else {
+                alert(_this.arrsid);
+                _this.arrsid.push(_this.sid);
+                alert(_this.arrsid);
+                $.cookie('cookiesid', _this.arrsid.join(','), 5);
+                _this.arrnum.push($('#buy_num').val());
+                $.cookie('cookienum', _this.arrnum.join(','), 5);
+            }
+        }
 
     }
     new cart().init();

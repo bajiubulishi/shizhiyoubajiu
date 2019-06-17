@@ -42,9 +42,9 @@
                     </div>
                     <div class="mc">
                         <div class="form">
-                            <form id="register_form" method="post" action="javascript:;">
+                            <form id="register_form" method="post" action="http://10.31.164.18/lianxi/happygo/php/regist.php">
                                 <div class="item item1">
-                                    <input type="text" placeholder="请输入手机号码" class="itxt onfocustxt" autocomplete="off" tabindex="1" maxlength="11" name="mobile" id="mobile">
+                                    <input type="text" placeholder="请输入手机号码" class="itxt onfocustxt" autocomplete="off" tabindex="1" name="mobile" id="mobile">
                                     <!-- <div class="err_box">
                                         <div class="err_msg err_msg1" style="display:none;" id="error_mobile"><i class="icon_err"></i>请输入11位手机号码</div>
                                     </div> -->
@@ -75,7 +75,7 @@
 
                                 <div class="item item5 ">
                                     <div class="login-btn ">
-                                        <input type="submit" class="submit" value="立即注册" />
+                                        <input type="submit" class="submit" name="submit" id="submit" value="立即注册" />
                                     </div>
                                     <div class="agree">
                                         <!-- <input type="checkbox " class="jdcheckbox " tabindex="8 " name="agree " id="agree " checked="checked "> -->
@@ -121,7 +121,7 @@
                         maxlength: 11,
                         remote: { //将username的值传给后端，后端返回的结果一定是true或者false的字符串。
                             type: 'post',
-                            url: ''
+                            url: 'http://10.31.164.18/lianxi/happygo/php/regist.php'
                         }
                     },
                     password: {
@@ -134,15 +134,15 @@
                     },
                     captcha: {
                         required: true,
-                        eq: $(".verify-code ").html()
+                        eq: $('.verify-code').html()
                     },
                 },
                 messages: {
                     mobile: {
-                        required: '<em class="err ">手机号不能为空</em>',
+                        required: '手机号不能为空',
                         digits: '手机号格式不对',
                         minlength: '用户名不能小于11',
-                        remote: '<em class="err ">手机号已存在</em>'
+                        remote: ' 手机号已存在'
                     },
                     password: {
                         required: '密码不能为空',
@@ -159,9 +159,8 @@
                 },
             });
         });
-        $.validator.addMethod("eq ", function(value, element, code) {
+        $.validator.addMethod("eq", function(value, element, code) {
             //value=输入框的值，code=验证码
-            console.log(code);
             if (value == code) {
                 //true则执行校验成功后的执行函数
                 return true

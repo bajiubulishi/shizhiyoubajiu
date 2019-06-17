@@ -24,12 +24,14 @@
             <div class="w1090 ClearFix" style="display: block;">
 
                 <div class="h_t_l">
-                    <!--已登陆-->
-                    <div class="login_2"> 欢迎您，
-                        <a href="https://www.happigo.com/shop/index.php?act=member&op=home">你家小honey</a><a href="https://www.happigo.com/shop/index.php?act=login&op=logout">[退出]</a>
+                    <div class="login_1"> <span class="h_t_l_wz">欢迎来到快乐购！</span>
+                        <a href="radio.html" target="_blank" class="a_login">[登录] </a>
+                        <a href="regist.html" class="a_reg">[免费注册]</a>
+                    </div>
+                    <div class="login_2" style="display:none"> 欢迎您，
+                        <a href="javascript:;" id="d_name"></a><a href="javascript:;" id="exid">[退出]</a>
                     </div>
                 </div>
-
 
                 <div class="h_t_r">
                     <ul>
@@ -317,8 +319,8 @@
                             <div class="detail_price clearfix">
                                 <span class="pop_tit title1">快乐价</span>
                                 <div class="price_box">
-                                    <span class="price_now" style="color:#DF0010"></span><em class="em_sign"></em></span>
-                                    <span><del></del></span>
+                                    <span class="price_now" style="color:#DF0010"><em class="em_sign">￥</em><b style="font-style: normal;"></b></span>
+                                    <span><del>￥</del></span>
                                 </div>
                             </div>
                             <!-- 服务 -->
@@ -651,8 +653,9 @@
     </div>
     <!--右侧导航 end-->
     <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/cookie.js"></script>
     <script src="../js/show.js"></script>
-
 </body>
 
 </html>

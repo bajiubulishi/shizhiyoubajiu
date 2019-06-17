@@ -30,5 +30,31 @@
 
 }();
 ! function() {
+    $('#loginsubmit').on('click', function() {
+        if ($('#captcha').val() == $('#codeimage').text()) {
+            $('#captcha').html('');
+            $.ajax({
+                type: 'post',
+                url: 'http://10.31.164.18/lianxi/happygo/php/radio.php',
+                data: {
+                    user: $('#user_name').val(),
+                    password: $('#password').val()
+                },
+                success: function(d) {
+                    if (d) {
+                        $.cookie('mobile', $('#user_name').val(), 5);
+                        $.cookie('pssword', $('#password').val(), 5);
+                        window.location.assign('http://10.31.164.18/lianxi/happygo/src/html/indx.html')
+
+                    } else {
+                        alert('用户名或密码错误');
+                        $('#password').val('');
+                    }
+                }
+            })
+        } else {
+            $('#error_captcha').html('验证码错误');
+        }
+    });
 
 }();

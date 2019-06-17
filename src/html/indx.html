@@ -28,8 +28,9 @@
                     <div class="login_1"> <span class="h_t_l_wz">欢迎来到快乐购！</span>
                         <a href="radio.html" target="_blank" class="a_login">[登录] </a>
                         <a href="regist.html" class="a_reg">[免费注册]</a>
-
-
+                    </div>
+                    <div class="login_2" style="display:none;"> 欢迎您，
+                        <a href="javascript:;" id="d_name"></a><a href="javascript:;" id="exid">[退出]</a>
                     </div>
                 </div>
 
@@ -103,7 +104,7 @@
                     </div>
 
                     <div class="h_c_right">
-                        <a onclick="clicktotrace('ShoppingCar','index')" href="https://www.happigo.com/shop/index.php?act=cart&op=index" class="h_c_r_car"><i class="iconfont_car iconfont">&#xe881;</i><span>购物车</span>
+                        <a onclick="clicktotrace('ShoppingCar','index')" href="JavaScript:;" class="h_c_r_car"><i class="iconfont_car iconfont">&#xe881;</i><span>购物车</span>
 			</a>
                     </div>
 
@@ -1537,7 +1538,7 @@
 
                     <div class="f_c_list">
                         <!-- 当前未登录时直接跳转到登录的页面 -->
-                        <a class="a_car" href="http://10.31.164.18/lianxi/happygo/src/radio.html">
+                        <a class="a_car" href="shopping.html">
                             <i class="icon_car iconfont" id="shopCart">&#xe881;</i>
                             <div class="f_c_list_wz"> 购物车 </div>
                             <div class="car_num">0</div>
@@ -1548,7 +1549,7 @@
 
                     <div class="f_c_list">
                         <!-- 当前未登录时直接跳转到登录页面-->
-                        <a href="http://10.31.164.18/lianxi/happygo/src/radio.html">
+                        <a href="javascript:;">
                             <i class="icon_collect iconfont">&#xe814;</i>
                             <div class="f_c_list_wz wz_39"> 收藏 </div>
                         </a>
@@ -1622,7 +1623,10 @@
         <!-- 左边楼层-end -->
         <script src="../js/jquery.js "></script>
         <script src="../js/jquery.lazyload.js "></script>
+        <script src="../js/jquery.cookie.js"></script>
         <script src="../js/indx.js "></script>
+        <script src="../js/cookie.js"></script>
+
 </body>
 
 </html>

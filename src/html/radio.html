@@ -44,7 +44,7 @@
                     <input type="hidden" value="" name="ref_url" id="ref_url">
                     <div class="mc" style="display:blcok;">
                         <div class="form">
-                            <form id="login_form" method="post" action="radio.html" class="bg">
+                            <form id="login_form" method="post" action="http://10.31.164.18/lianxi/happygo/php/regist.php" class="bg">
                                 <input type='hidden' name='formhash' value='grA.Jz8Hg1w8Cb0LfcxDnslhYJk1KJg' /> <input type="hidden" id="token_key_id" name="token_key_id" value="04c0c3485d190698765262fb4ba9d9e9" />
                                 <input type="hidden" id="form_submit" name="form_submit" value="ok" />
                                 <input type="hidden" id="inajax" name="inajax" value="1" />
@@ -66,7 +66,7 @@
                                     <span name="codeimage" id="codeimage" class="verify-code" style="width:78px; height:38px; border: 1px solid #000;font-size: 25px;line-height:38px;font-weight: 800;text-align: center;color:#F11231">sdea</span>
                                     <a href="javascript:void(0)" class="ml5">换一张</a>
                                     <div class="err_box">
-                                        <div class="err_msg" style="display: none;" id="error_captcha"></div>
+                                        <div class="err_msg" style="display:block;" id="error_captcha"></div>
                                     </div>
                                 </div>
                                 <div class="item item4">
@@ -88,20 +88,6 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                        <div class="coagent">
-                            <h5>您可以使用以下账号登录</h5>
-                            <ul>
-                                <li>
-                                    <a class="hz_xl" href="https://www.happigo.com/shop/api.php?act=toqq" title="QQ">QQ</a>
-                                </li>
-                                <li>
-                                    <a class="hz_qq" href="https://www.happigo.com/shop/api.php?act=tosina" title="新浪微博">新浪微博</a>
-                                </li>
-                                <li>
-                                    <a class="hz_zfb" href="https://www.happigo.com/shop/api.php?act=zfb" title="支付宝">支付宝</a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -133,6 +119,7 @@
     </div>
     <!--底部 end-->
     <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
     <script src="../js/radio.js"></script>
 </body>
 
