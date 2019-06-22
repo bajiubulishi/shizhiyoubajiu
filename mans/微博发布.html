@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>新浪微博首页效果</title>
+    <style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    body {
+        background: #eee;
+    }
+
+    #t_sina {
+        width: 390px;
+        padding: 10px;
+        background: #fff;
+        margin: 50px auto 0;
+        font-size: 12px;
+        border: 1px solid #ccc;
+    }
+
+    #t_sina h2 {
+        padding: 10px 0 10px 10px;
+        border-bottom: 1px solid #ebebeb;
+        color: #333;
+        font-size: 14px;
+    }
+
+    #content {
+        width: 390px;
+        height: 345px;
+        overflow: auto;
+    }
+
+    #content ul {
+        width: 390px;
+    }
+
+    #content li {
+        width: 390px;
+        padding: 10px 0;
+        overflow: hidden;
+        border-bottom: 1px dotted #9f9f9f;
+    }
+
+    #content .pic {
+        float: left;
+        width: 50px;
+        height: 50px;
+    }
+
+    #content .pic a {
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: #eee;
+    }
+
+    #content .pic a:hover {
+        background: #00FFFF;
+    }
+
+    #content p {
+        float: right;
+        width: 315px;
+        margin-right: 10px;
+        display: inline;
+        line-height: 16px;
+        color: #666;
+    }
+
+    #content p a {
+        color: #6eafd5;
+        font-family: arial;
+        text-decoration: none;
+    }
+
+    #content p a:hover {
+        text-decoration: underline;
+    }
+
+    #content p span {
+        color: #999;
+    }
+
+    #t_sina dt {
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    #t_sina dd {
+        padding-bottom: 5px;
+        color: #666;
+    }
+
+    #t_sina .text {
+        width: 320px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        font-family: arial;
+        color: #666;
+        position: relative;
+        left: 20px;
+    }
+
+    #t_sina textarea {
+        width: 320px;
+        height: 80px;
+        line-height: 20px;
+        overflow: auto;
+        font-size: 12px;
+        font-family: arial;
+        color: #666;
+        position: relative;
+        left: 20px;
+    }
+
+    #t_sina .btn {
+        position: relative;
+        left: 55px;
+        width: 120px;
+        height: 30px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="t_sina">
+        <h2>大家正在说</h2>
+        <div id="content">
+            <ul>
+                <li>
+                    <div class="pic"><a href="###"></a></div>
+                    <p><a href="#">夜话燕子</a>：今晚,我是一个超级大的电灯泡,探照灯级别的。现在我终于消失了，一个人在江边走走也不错诶。
+                        <br /><span>时间</span>3分钟前</p>
+                </li>
+            </ul>
+        </div>
+        <dl>
+            <dt>-发布微博-</dt>
+            <dd>姓名：
+                <input id='btn_name' class="text" type="text" />
+            </dd>
+            <dd>内容：
+                <textarea id='btn_msg'></textarea>
+            </dd>
+            <dd>
+                <input class="btn" id="btn_submit" type="button" value="提交" />
+            </dd>
+        </dl>
+    </div>
+    <script>
+        const btn_name=document.querySelector('.text');
+        const btn_msg=document.querySelector('textarea');
+        const btn=document.getElementById('btn_submit');
+        const content=document.getElementById('content');
+        btn.onclick=function(){
+            let str='';
+            str+=`
+                <li>
+                    <div class="pic"><a href="###"></a></div>
+                    <p><a href="#">${btn_name.value}</a>：${btn_msg.value}
+                        <br /><span>时间</span>3分钟前</p>
+                </li>`
+                const vul=document.createElement('ul');
+                vul.innerHTML=str;
+                content.appendChild(vul);     
+                btn_name.value='';
+                btn_msg.value='';
+        }
+        
+    </script>
+</body>
+
+</html>

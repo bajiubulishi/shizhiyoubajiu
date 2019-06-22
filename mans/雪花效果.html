@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    body{
+    	background: #000;
+    }
+    .box {
+        width: 800px;
+        height: 500px;
+        border: 1px solid red;
+        margin: 20px auto;
+        position: relative;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+    <!-- <script type="text/javascript" src="snow.js"></script> -->
+    <script type="text/javascript">
+    	// var s1=new Snow({
+    	// 	box:'.box',
+    	// 	url:'snow.png',
+    	// 	times:200,
+    	// 	direction:-1
+    	// });
+
+        // s1.snowloop();
+        function random(min, max) {
+            return parseInt((Math.random() * (max - min)) + min);
+        }
+        const width=document.querySelector('.box').offsetWidth;
+        const height=document.querySelector('.box').offsetHeight;
+        const box=document.querySelector('.box');
+        
+        let timer=null;
+        let speedy=0;
+
+        function fn(){
+            var obox=document.createElement('div');
+            obox.style=`position:absolute;width:30px;height:35px;background:url(snow.png) no-repeat;left:${random(0,760)}px;top:${random(0,460)}px`;
+            box.appendChild(obox);
+
+        
+        timer=setInterval(function(){
+            
+            speedy=20;
+            let l=obox.offsetLeft+speedy;
+            let t=obox.offsetTop+speedy;
+            if(l>width-obox.offsetWidth){
+                speedy=0;
+                l=0; 
+            }
+            if(t>height-obox.offsetHeight){
+                speedy=0;
+                t=0;
+            }
+            obox.style.left=l+'px';
+            obox.style.top=t+'px';
+    },200)
+};
+for(var i=1;i<20;i++){
+    fn();
+}
+
+        // class snow{
+        //     constructor(){
+        //         this.width=document.querySelector('.box').offsetWidth;
+        //         this.height=document.querySelector('.box').offsetHeight;
+        //         this.obox=document.createElement('div');
+        //     }
+        //     init(){
+
+        //     }
+        // }
+        // new snow().init();
+    </script>
+</body>
+
+</html>
